@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Demo Website</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding:20px; }
+    label { display:block; margin-top:8px; }
+    input, textarea { width:100%; max-width:420px; padding:8px; }
+  </style>
+</head>
+<body>
+  <h1>Contact Page</h1>
+  <p>This is a demo contact form. If you arrived here via the form on the homepage, you’ll see your data in the URL (GET method).</p>
+
+  <form>
+    <label>Your Name (from previous form):</label>
+    <input type="text" name="name" value="" placeholder="—" />
+    <label>Your Message (from previous form):</label>
+    <textarea name="msg" rows="4" placeholder="—"></textarea>
+    <p><button type="button" onclick="history.back()">Back</button></p>
+  </form>
+
+  <p><a href="index.html">Back to Home</a></p>
+
+  <script>
+    // Fill in form fields if values are passed via URL
+    const params = new URLSearchParams(location.search);
+    if (params.has('name')) document.querySelector('input[name="name"]').value = params.get('name');
+    if (params.has('msg')) document.querySelector('textarea[name="msg"]').value = params.get('msg');
+  </script>
+</body>
+</html>

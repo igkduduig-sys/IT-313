@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home — Demo Website</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; line-height:1.6; padding:20px; }
+    header { background:#0d6efd; color:white; padding:16px; border-radius:8px; }
+    nav a { color:white; margin:0 8px; text-decoration:none; font-weight:600; }
+    main { margin-top:18px; }
+    .card { border:1px solid #ddd; padding:12px; border-radius:6px; margin-bottom:12px; }
+    footer { margin-top:18px; color:#666; font-size:0.9rem; }
+    .btn { display:inline-block; padding:8px 12px; border-radius:6px; background:#198754; color:white; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Demo Website</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Welcome!</h2>
+      <p>This is a simple homepage with basic HTML elements and links to other pages.</p>
+    </section>
+
+    <section class="card">
+      <h3>What this page includes</h3>
+      <ul>
+        <li>Headings (h1, h2, h3)</li>
+        <li>Paragraphs (p)</li>
+        <li>Lists (ul/ol)</li>
+        <li>Links (a) and a button with JavaScript navigation</li>
+        <li>A simple form</li>
+      </ul>
+
+      <!-- Simple link -->
+      <p>Go to: <a href="about.html">About Page</a></p>
+
+      <!-- JavaScript navigation button -->
+      <p>
+        <button id="goContact" class="btn" type="button">Go to Contact Page (JS)</button>
+      </p>
+
+      <!-- Basic form -->
+      <form action="contact.html" method="get" class="card">
+        <label for="name">Your Name:</label><br />
+        <input id="name" name="name" type="text" placeholder="Enter your name" /><br /><br />
+        <label for="msg">Message:</label><br />
+        <textarea id="msg" name="msg" rows="3" placeholder="Type a message"></textarea><br /><br />
+        <button type="submit" class="btn">Send (goes to Contact Page)</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 — Demo Website. Open these files locally in your browser to test.
+  </footer>
+
+  <script>
+    // Simple JavaScript navigation
+    document.getElementById('goContact').addEventListener('click', function() {
+      window.location.href = 'contact.html';
+    });
+  </script>
+</body>
+</html>
