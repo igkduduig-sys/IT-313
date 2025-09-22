@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editable Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: 20px auto;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #0099cc;
+      color: white;
+    }
+    td[contenteditable="true"] {
+      background-color: #f9f9f9;
+      cursor: text;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">Editable Table Example</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Marks</th>
+    </tr>
+    <tr>
+      <td contenteditable="true">1</td>
+      <td contenteditable="true">Ali</td>
+      <td contenteditable="true">90</td>
+    </tr>
+    <tr>
+      <td contenteditable="true">2</td>
+      <td contenteditable="true">Fatima</td>
+      <td contenteditable="true">85</td>
+    </tr>
+    <tr>
+      <td contenteditable="true">3</td>
+      <td contenteditable="true">Omar</td>
+      <td contenteditable="true">78</td>
+    </tr>
+  </table>
+</body>
+</html>
