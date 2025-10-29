@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Food Menu</title>
+<style>
+  body {
+    background-color: #fff8dc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .meal {
+    background-color: #f8c8dc;
+    border: 2px solid #d87093;
+    width: 300px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  img {
+    width: 280px;
+    height: 180px;
+    border-radius: 8px;
+  }
+  h2 {
+    color: #800000;
+  }
+  button {
+    margin: 5px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: #f08080;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #cd5c5c;
+  }
+</style>
+</head>
+<body>
+
+<h1>Food Menu</h1>
+
+<button onclick="addMeal()">Add new meal</button>
+<button onclick="suggestMeal()">Suggest a meal</button>
+<button onclick="displayMeals()">Display Meals</button>
+
+<div id="meals"></div>
+<div id="suggestion"></div>
+
+<script>
+let meals = [
+  {
+    name: "Pasta",
+    image: "https://cdn.ready-market.com.tw/21cd62de/Templates/pic/ANKO-Spaghetti-1200x1200.jpg?v=23e30875",
+    calories: 100,
+    vegetarian: "Yes"
+  },
+  {
+    name: "Fried Chicken",
+    image: "https://img.ananinja.com/media/ninja-catalog-42/restaurants/0seyfd9lt77g3oxchbvuhgiv4dhf/Untitled%20design%20(1).jpg?w=3840&q=75",
+    calories: 400,
+    vegetarian: "No"
+  },
+  {
+    name: "Cheese Burger",
+    image: "https://cdn-cndob.nitrocdn.com/TNVcUtOAPuqGFiUbahIgLHOviDAJtxsp/assets/images/optimized/rev-42d7804/media.thechefz.co/content/thump_profile/KvTJe5R4n_J-_9_S6Z5JEhE-WL2RGGWO.jpeg",
+    calories: 310,
+    vegetarian: "No"
+  }
+];
+
+function displayMeals() {
+  let output = "";
+  for (let i = 0; i < meals.length; i++) {
+    output += `
+      <div class="meal">
+        <h2>${meals[i].name}</h2>
+        <img src="${meals[i].image}" alt="${meals[i].name}">
+        <p>Calorie Count: ${meals[i].calories}</p>
+        <p>Vegetarian: ${meals[i].vegetarian}</p>
+      </div>`;
+  }
+  document.getElementById("meals").innerHTML = output;
+  document.getElementById("suggestion").innerHTML = "";
+}
+
+function addMeal() {
+  let name = prompt("Enter meal name:");
+  let image = prompt("Enter image URL:");
+  let calories = prompt("Enter calorie count:");
+  let vegetarian = prompt("Is it vegetarian? (Yes/No)");
+  meals.push({ name, image, calories, vegetarian });
+  alert("Meal added successfully!");
+}
+
+function suggestMeal() {
+  let randomIndex = Math.floor(Math.random() * meals.length);
+  let meal = meals[randomIndex];
+  let suggestionHTML = `
+    <div class="meal">
+      <h2>We Suggest This Meal For You</h2>
+      <h3>${meal.name}</h3>
+      <img src="${meal.image}" alt="${meal.name}">
+      <p>Calorie Count: ${meal.calories}</p>
+      <p>Vegetarian: ${meal.vegetarian}</p>
+    </div>`;
+  document.getElementById("suggestion").innerHTML = suggestionHTML;
+  document.getElementById("meals").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
